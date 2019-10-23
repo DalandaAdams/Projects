@@ -1,0 +1,112 @@
+header, footer{
+  background-color: lightgreen;
+  <div> text-align:center
+
+}
+body {
+    font-family: arial, helvetica, sans-serif;
+    max-width: 900px;
+    margin:0 auto;
+}
+<style>
+nav {
+  border-top: thin #5b7d87 solid;
+      border-bottom: thin #5b7d87 solid;
+      padding-top: 12px;
+      padding-bottom: 12px;
+}
+</style>
+
+<style>
+  nav .btn {
+    background-color: #5b7d87;
+    color: #fef9ff;
+  }
+  </style>
+
+  <style>
+    nav .btn:hover {
+      font-weight: bold;
+    }
+</style>
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #4CAF50;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+
+input[name="carousel"] {
+    display: id;
+}
+
+.carousel-nav {
+    label {
+        display: inline-block;
+        margin: 0 10px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color teal;
+    }
+}
+
+.carousel-slides {
+    width: 100%;
+    overflow: hidden;
+
+    .carousel-inner {
+        width: (100% * map_get($css-carousel, slides));
+        transition: margin map_get($css-carousel, transition-speed);
+    }
+
+    .carousel-item {
+        float: left;
+        width: (100% / map_get($css-carousel, slides));
+    }
+}
+
+@for $i from 1 through map_get($css-carousel, slides) {
+    #carousel-#{$i}:checked ~ .carousel-nav label[for="carousel-#{$i}"] {
+        background-color: #fff;
+    }
+}
+
+// active carousel slides
+@for $i from 1 through map_get($css-carousel, slides) {
+    #carousel-#{$i}:checked ~ .carousel-slides .carousel-inner {
+        margin-left: (-100% * ($i - 1));
+    }
+}
